@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { MoreVertical, ChevronDown } from "lucide-react-native";
 import { Category } from "../types";
 import { categoryDisplayNames } from "../constants";
+import { darkTheme } from "../constants/colors";
 
 interface HeaderProps {
   selectedCategory: Category;
@@ -28,13 +29,13 @@ export const Header: React.FC<HeaderProps> = ({
             {categoryDisplayNames[selectedCategory] ?? "Movie"}
           </Text>
           <View style={styles.downButtonContainer}>
-            <ChevronDown size={20} color="#333" />
+            <ChevronDown size={20} color={darkTheme.text} />
           </View>
         </TouchableOpacity>
         <Text style={styles.title}>Recs</Text>
       </View>
       <TouchableOpacity style={styles.menuButton} onPress={onMenuPress}>
-        <MoreVertical size={24} color="#333" />
+        <MoreVertical size={24} color={darkTheme.text} />
       </TouchableOpacity>
     </View>
   );
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#333",
+    color: darkTheme.text,
   },
   menuButton: {
     padding: 8,

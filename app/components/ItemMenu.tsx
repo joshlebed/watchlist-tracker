@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Pressable, StyleSheet } from "react-nativ
 import { Portal } from "@gorhom/portal";
 import { Check, Trash2, Pencil } from "lucide-react-native";
 import { ItemMenuProps } from "../types";
+import { darkTheme } from "../constants/colors";
 
 export const ItemMenu: React.FC<ItemMenuProps> = ({
   item,
@@ -31,7 +32,7 @@ export const ItemMenu: React.FC<ItemMenuProps> = ({
               onClose();
             }}
           >
-            <Check size={16} color={item.completed ? "#44BB44" : "#666"} />
+            <Check size={16} color={item.completed ? darkTheme.success : darkTheme.textMuted} />
             <Text style={styles.itemMenuText}>
               {item.completed ? "Mark Incomplete" : "Mark Complete"}
             </Text>
@@ -43,7 +44,7 @@ export const ItemMenu: React.FC<ItemMenuProps> = ({
               onClose();
             }}
           >
-            <Pencil size={16} color="#666" />
+            <Pencil size={16} color={darkTheme.textMuted} />
             <Text style={styles.itemMenuText}>Edit</Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -53,7 +54,7 @@ export const ItemMenu: React.FC<ItemMenuProps> = ({
               onClose();
             }}
           >
-            <Trash2 size={16} color="#FF4444" />
+            <Trash2 size={16} color={darkTheme.error} />
             <Text style={styles.itemMenuText}>Delete</Text>
           </TouchableOpacity>
         </View>
@@ -64,15 +65,15 @@ export const ItemMenu: React.FC<ItemMenuProps> = ({
 
 const styles = StyleSheet.create({
   itemMenu: {
-    backgroundColor: "#fff",
+    backgroundColor: darkTheme.menuBackground,
     borderRadius: 8,
     padding: 4,
-    shadowColor: "#000",
+    shadowColor: darkTheme.shadowColor,
     shadowOffset: {
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.3,
     shadowRadius: 3,
     elevation: 3,
     minWidth: 160,
@@ -86,6 +87,6 @@ const styles = StyleSheet.create({
   itemMenuText: {
     marginLeft: 8,
     fontSize: 14,
-    color: "#333",
+    color: darkTheme.text,
   },
 });

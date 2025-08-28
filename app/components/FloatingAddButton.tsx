@@ -1,6 +1,7 @@
 import React from "react";
 import { View, TouchableOpacity, StyleSheet } from "react-native";
 import { Plus } from "lucide-react-native";
+import { darkTheme } from "../constants/colors";
 
 interface FloatingAddButtonProps {
   onPress: () => void;
@@ -12,7 +13,7 @@ export const FloatingAddButton: React.FC<FloatingAddButtonProps> = ({
   return (
     <View style={styles.addButtonContainer}>
       <TouchableOpacity style={styles.floatingAddButton} onPress={onPress}>
-        <Plus size={24} color="#FFF" />
+        <Plus size={24} color={darkTheme.text} />
       </TouchableOpacity>
     </View>
   );
@@ -30,15 +31,15 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: "#007AFF",
+    backgroundColor: darkTheme.primary,
     justifyContent: "center",
     alignItems: "center",
-    shadowColor: "#000",
+    shadowColor: darkTheme.shadowColor,
     shadowOffset: {
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.25,
+    shadowOpacity: 0.4,
     shadowRadius: 3.84,
     elevation: 5,
   },

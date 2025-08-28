@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { Category } from "../types";
 import { CATEGORIES, categoryDisplayNames } from "../constants";
+import { darkTheme } from "../constants/colors";
 
 interface CategoryMenuProps {
   visible: boolean;
@@ -43,15 +44,15 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 20,
     left: 16,
-    backgroundColor: "#fff",
+    backgroundColor: darkTheme.menuBackground,
     borderRadius: 12,
     padding: 8,
-    shadowColor: "#000",
+    shadowColor: darkTheme.shadowColor,
     shadowOffset: {
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.3,
     shadowRadius: 3,
     elevation: 3,
     zIndex: 1000,
@@ -62,10 +63,10 @@ const styles = StyleSheet.create({
   },
   categoryMenuText: {
     fontSize: 16,
-    color: "#333",
+    color: darkTheme.text,
   },
   categoryMenuTextActive: {
-    color: "#007AFF",
+    color: darkTheme.primary,
     fontWeight: "600",
   },
 });

@@ -6,6 +6,7 @@ import {
   Text,
   StyleSheet,
 } from "react-native";
+import { darkTheme } from "../constants/colors";
 
 interface ImportCSVModalProps {
   visible: boolean;
@@ -28,6 +29,7 @@ export const ImportCSVModal: React.FC<ImportCSVModalProps> = ({
         style={styles.importInput}
         multiline
         placeholder="Paste CSV data here (title,count,completed,category)"
+        placeholderTextColor={darkTheme.textMuted}
         value={value}
         onChangeText={onChangeText}
         autoFocus={true}
@@ -42,36 +44,36 @@ export const ImportCSVModal: React.FC<ImportCSVModalProps> = ({
 const styles = StyleSheet.create({
   importContainer: {
     padding: 16,
-    backgroundColor: "#fff",
+    backgroundColor: darkTheme.surface,
     margin: 16,
     borderRadius: 12,
-    shadowColor: "#000",
+    shadowColor: darkTheme.shadowColor,
     shadowOffset: {
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.3,
     shadowRadius: 3,
     elevation: 3,
   },
   importInput: {
-    backgroundColor: "#f5f5f5",
+    backgroundColor: darkTheme.inputBackground,
     borderRadius: 12,
     padding: 12,
     fontSize: 16,
-    color: "#333",
+    color: darkTheme.text,
     minHeight: 100,
     textAlignVertical: "top",
     marginBottom: 12,
   },
   importButton: {
-    backgroundColor: "#007AFF",
+    backgroundColor: darkTheme.primary,
     borderRadius: 24,
     padding: 12,
     alignItems: "center",
   },
   buttonText: {
-    color: "#fff",
+    color: darkTheme.text,
     fontSize: 16,
     fontWeight: "600",
   },

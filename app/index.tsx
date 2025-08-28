@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { PortalProvider } from "@gorhom/portal";
+import { darkTheme } from "./constants/colors";
 
 import { Item, Category, ItemMenuPosition } from "./types";
 import { useItems } from "./hooks/useItems";
@@ -178,7 +179,7 @@ export default function Recommendations() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         keyboardVerticalOffset={Platform.OS === "ios" ? 88 : 0}
       >
-        <StatusBar style="auto" />
+        <StatusBar style={darkTheme.statusBar as "light"} />
         <Pressable
           style={StyleSheet.absoluteFill}
           onPress={() => {
@@ -282,7 +283,7 @@ export default function Recommendations() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: darkTheme.background,
     paddingTop: 60,
   },
   list: {

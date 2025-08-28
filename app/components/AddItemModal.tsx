@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { Check } from "lucide-react-native";
 import { Category } from "../types";
+import { darkTheme } from "../constants/colors";
 
 interface AddItemModalProps {
   visible: boolean;
@@ -64,13 +65,13 @@ export const AddItemModal: React.FC<AddItemModalProps> = ({
                   ? `Edit ${selectedCategory} title`
                   : `Enter a ${selectedCategory} title`
               }
-              placeholderTextColor="#666"
+              placeholderTextColor={darkTheme.textMuted}
               onSubmitEditing={onSubmit}
               returnKeyType="done"
               autoFocus={true}
             />
             <TouchableOpacity style={styles.modalAddButton} onPress={onSubmit}>
-              <Check size={24} color="#FFF" />
+              <Check size={24} color={darkTheme.text} />
             </TouchableOpacity>
           </View>
         </Pressable>
@@ -82,11 +83,11 @@ export const AddItemModal: React.FC<AddItemModalProps> = ({
 const styles = StyleSheet.create({
   modalOverlay: {
     flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: darkTheme.modalOverlay,
     justifyContent: "flex-end",
   },
   modalContent: {
-    backgroundColor: "#fff",
+    backgroundColor: darkTheme.surface,
     padding: 16,
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
@@ -101,17 +102,17 @@ const styles = StyleSheet.create({
   modalInput: {
     flex: 1,
     height: 48,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: darkTheme.inputBackground,
     borderRadius: 24,
     paddingHorizontal: 20,
     marginRight: 12,
     fontSize: 16,
-    color: "#333",
+    color: darkTheme.text,
   },
   modalAddButton: {
     width: 48,
     height: 48,
-    backgroundColor: "#007AFF",
+    backgroundColor: darkTheme.primary,
     borderRadius: 24,
     justifyContent: "center",
     alignItems: "center",

@@ -1,5 +1,6 @@
 import React from "react";
 import { View, ScrollView, Text, StyleSheet, Platform } from "react-native";
+import { darkTheme } from "../constants/colors";
 
 interface ExportModalProps {
   visible: boolean;
@@ -23,16 +24,16 @@ export const ExportModal: React.FC<ExportModalProps> = ({ visible, data }) => {
 const styles = StyleSheet.create({
   exportContainer: {
     padding: 16,
-    backgroundColor: "#fff",
+    backgroundColor: darkTheme.surface,
     margin: 16,
     borderRadius: 12,
     maxHeight: 200,
-    shadowColor: "#000",
+    shadowColor: darkTheme.shadowColor,
     shadowOffset: {
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.3,
     shadowRadius: 3,
     elevation: 3,
   },
@@ -42,5 +43,6 @@ const styles = StyleSheet.create({
   exportText: {
     fontFamily: Platform.select({ ios: "Courier", android: "monospace" }),
     fontSize: 14,
+    color: darkTheme.text,
   },
 });

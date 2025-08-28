@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Pressable, StyleSheet } from "react-native";
 import { Import, FileUp, FileDown } from "lucide-react-native";
+import { darkTheme } from "../constants/colors";
 
 interface MainMenuProps {
   visible: boolean;
@@ -20,15 +21,15 @@ export const MainMenu: React.FC<MainMenuProps> = ({
   return (
     <Pressable style={styles.menu} onPress={(e) => e.stopPropagation()}>
       <TouchableOpacity style={styles.menuItem} onPress={onPasteList}>
-        <Import size={20} color="#333" />
+        <Import size={20} color={darkTheme.text} />
         <Text style={styles.menuText}>Paste List</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.menuItem} onPress={onImportCSV}>
-        <FileUp size={20} color="#333" />
+        <FileUp size={20} color={darkTheme.text} />
         <Text style={styles.menuText}>Import from CSV</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.menuItem} onPress={onExportCSV}>
-        <FileDown size={20} color="#333" />
+        <FileDown size={20} color={darkTheme.text} />
         <Text style={styles.menuText}>Export to CSV</Text>
       </TouchableOpacity>
     </Pressable>
@@ -40,15 +41,15 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 60,
     right: 16,
-    backgroundColor: "#fff",
+    backgroundColor: darkTheme.menuBackground,
     borderRadius: 12,
     padding: 8,
-    shadowColor: "#000",
+    shadowColor: darkTheme.shadowColor,
     shadowOffset: {
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.3,
     shadowRadius: 3,
     elevation: 3,
     zIndex: 1000,
@@ -62,6 +63,6 @@ const styles = StyleSheet.create({
   menuText: {
     marginLeft: 12,
     fontSize: 16,
-    color: "#333",
+    color: darkTheme.text,
   },
 });

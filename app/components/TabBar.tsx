@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { TabLabels } from "../types";
+import { darkTheme } from "../constants/colors";
 
 interface TabBarProps {
   activeTab: "incomplete" | "completed";
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginHorizontal: 16,
     marginBottom: 16,
-    backgroundColor: "#fff",
+    backgroundColor: darkTheme.surface,
     borderRadius: 12,
     padding: 4,
   },
@@ -61,14 +62,14 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   activeTab: {
-    backgroundColor: "#007AFF",
+    backgroundColor: darkTheme.tabActive,
   },
   tabText: {
     fontSize: 16,
-    color: "#666",
+    color: darkTheme.tabInactive,
   },
   activeTabText: {
-    color: "#fff",
+    color: darkTheme.text,
     fontWeight: "600",
   },
 });

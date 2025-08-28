@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { ArrowUp, ArrowDown, MoreVertical } from "lucide-react-native";
 import { Item } from "../types";
+import { darkTheme } from "../constants/colors";
 
 interface ListItemProps {
   item: Item;
@@ -26,13 +27,13 @@ export const ListItem: React.FC<ListItemProps> = ({
       </View>
       <View style={styles.itemActions}>
         <TouchableOpacity style={styles.actionButton} onPress={onDecrease}>
-          <ArrowDown size={16} color="#FF4444" />
+          <ArrowDown size={16} color={darkTheme.error} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionButton} onPress={onIncrease}>
-          <ArrowUp size={16} color="#44BB44" />
+          <ArrowUp size={16} color={darkTheme.success} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.actionButton} onPress={onShowMenu}>
-          <MoreVertical size={16} color="#666" />
+          <MoreVertical size={16} color={darkTheme.textMuted} />
         </TouchableOpacity>
       </View>
     </View>
@@ -41,23 +42,23 @@ export const ListItem: React.FC<ListItemProps> = ({
 
 const styles = StyleSheet.create({
   itemContainer: {
-    backgroundColor: "#fff",
+    backgroundColor: darkTheme.surface,
     borderRadius: 8,
     padding: 8,
     marginBottom: 8,
     flexDirection: "row",
     alignItems: "center",
-    shadowColor: "#000",
+    shadowColor: darkTheme.shadowColor,
     shadowOffset: {
       width: 0,
       height: 1,
     },
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.3,
     shadowRadius: 2,
     elevation: 2,
   },
   countContainer: {
-    backgroundColor: "#f5f5f5",
+    backgroundColor: darkTheme.countBackground,
     borderRadius: 4,
     paddingHorizontal: 8,
     paddingVertical: 4,
@@ -66,14 +67,14 @@ const styles = StyleSheet.create({
   count: {
     fontSize: 14,
     fontWeight: "600",
-    color: "#666",
+    color: darkTheme.textSecondary,
   },
   itemInfo: {
     flex: 1,
   },
   itemTitle: {
     fontSize: 16,
-    color: "#333",
+    color: darkTheme.text,
   },
   itemActions: {
     flexDirection: "row",
